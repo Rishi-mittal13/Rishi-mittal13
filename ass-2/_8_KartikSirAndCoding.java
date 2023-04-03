@@ -11,14 +11,14 @@
 
 
 import java.util.*;
-public class Main {
+public class _8_KartikSirAndCoding {
     static Scanner s = new Scanner(System.in);
 	public static void main(String args[]) throws Exception {
 		// Your Code Here
 	
 	
 	    int q = s.nextInt();
-        Main obj = new Main();
+        _8_KartikSirAndCoding obj = new _8_KartikSirAndCoding();
         StacksUsingArrays stack = obj.new StacksUsingArrays();
     	Calculate(stack, q);
 	}

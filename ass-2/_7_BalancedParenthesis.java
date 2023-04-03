@@ -1,11 +1,11 @@
 import java.util.*;
-public class _7_Balancedparenthesis {
+public class _7_BalancedParenthesis {
 
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 		Scanner s = new Scanner(System.in);
 		String str = s.next();
-		_7_Balancedparenthesis mainobj = new _7_Balancedparenthesis();
+		_7_BalancedParenthesis mainobj = new _7_BalancedParenthesis();
 		StacksUsingArrays stack = mainobj.new StacksUsingArrays(1000);
 		if (isBalanced(str, stack)) {
 			System.out.println("Yes");
