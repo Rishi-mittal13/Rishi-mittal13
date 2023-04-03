@@ -1,0 +1,48 @@
+import java.util.*;
+
+public class _16_PlayingWithCard {
+    static int maxSize = 100001;
+    static ArrayList<Integer> primeNumbers = new ArrayList<>();
+
+    public static void nthPrime(){
+        boolean[] isPrime = new boolean[maxSize];
+        for(int j = 2 ; (j*j)<maxSize ; j++){
+            if(isPrime[j]==false){
+                for(int i = j ; i*j<maxSize ; i++){
+                    isPrime[i*j] = true;
+                }
+            }
+        }
+        for(int i = 2 ; i<100001 ; i++){
+            if(isPrime[i]==false) primeNumbers.add(i);
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        nthPrime();
+        Stack<Integer> stack1 = new Stack<>();
+        Stack<Integer> stack2 = new Stack<>();
+        Stack<Integer> stack3 = new Stack<>();
+        int n  = scanner.nextInt();
+        int q = scanner.nextInt();
+        for(int i = 0 ; i<n ; i++){
+            int element = scanner.nextInt();
+            stack1.push(element);
+        }
+        for(int i = 0 ;i<q ; i++){
+            int prime = primeNumbers.get(i);
+            while((!stack1.isEmpty()) && (i%2==0)){
+                if(stack1.peek()%prime==0) stack2.push(stack1.pop());
+                else stack3.push(stack1.pop());
+            }    
+            while((!stack3.isEmpty()) && (i%2==1)){
+                if(stack3.peek()%prime==0) stack2.push(stack3.pop());
+                else stack1.push(stack3.pop());
+            }
+            while(!stack2.isEmpty()) System.out.println(stack2.pop());
+        }
+        while(!stack1.isEmpty()) System.out.println(stack1.pop());
+        while(!stack3.isEmpty()) System.out.println(stack3.pop());
+    }
+}
